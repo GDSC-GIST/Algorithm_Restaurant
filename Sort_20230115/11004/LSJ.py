@@ -1,8 +1,2 @@
-import sys
-input=sys.stdin.readline
-nums=[]
-for _ in range(int(input())):
-  nums.append(int(input()))
-
-for i in sorted(nums):
-  print(i)
+n,k=map(int,input().split())
+print(sorted(map(int,input().split()))[k-1])
