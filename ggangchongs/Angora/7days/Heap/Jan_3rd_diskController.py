@@ -17,6 +17,7 @@ def solution(jobs):
         for j in jobs:
             if j[0] <= nowTime:
                 heapq.heappush(waitingHeap, [j[1],j[0]])
+                # heappush(heap, hq.heappop(jobs)[::-1]) -> 뒤집어서 삽입할 수 있음
             else: heapq.heappush(notyet, j)
         
         if len(waitingHeap) != 0:
@@ -32,7 +33,7 @@ def solution(jobs):
             waitingHeap[i] = [waitingHeap[i][1], waitingHeap[i][0]]
         jobs = waitingHeap + notyet
         
-    return int(answer/num)
+    return answer//num
 
 jobs = [[2, 6], [0, 3], [1, 9]]
 print(solution(jobs))
