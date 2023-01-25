@@ -1,0 +1,12 @@
+S = int(input())
+sum = 0
+count = 0
+
+i = 1
+while True:
+    sum += i
+    i += 1
+    if sum > S:
+        break
+    count += 1
+print(count)
