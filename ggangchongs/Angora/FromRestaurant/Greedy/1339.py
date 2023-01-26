@@ -1,17 +1,13 @@
 n = int(input())
-voca = []
 alpha = {}
 for i in range(n):
-    tmp = list(input())
-    for t in tmp:
-        alpha[t] = 0
-    voca.append(tmp)
-
-for v in voca:
-    length = len(v)
+    voca = list(input())
+    length = len(voca)
     for i in range(length):
-        oldValue = alpha[v[i]]
-        alpha[v[i]] += 10**(length-(i+1))
+        if voca[i] not in alpha:
+            alpha[voca[i]] = 10**(length-(i+1))
+        else:
+            alpha[voca[i]] += 10**(length-(i+1))
 
 sorted_alpha = sorted(alpha.items(), key = lambda item: -item[1])
 start = 9
