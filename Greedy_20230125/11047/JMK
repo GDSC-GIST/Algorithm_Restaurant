@@ -1,0 +1,18 @@
+import sys
+N, K = map(int, sys.stdin.readline().split())
+list1 = [int(sys.stdin.readline()) for j in range(N)]
+amount = 0 #동전 총 개수
+
+list1.sort(reverse=True)
+
+remain = K  #초기 나머지는 지불해야 할 총 금액으로
+i = 0
+while remain > 0: 
+    q = remain//list1[i]
+    amount = amount + q
+    remain = remain - q*list1[i]
+    if i == len(list1)-1: #index가 list의 끝에 도달했으면 끝내기
+        break
+    i = i + 1
+    
+print(amount)
