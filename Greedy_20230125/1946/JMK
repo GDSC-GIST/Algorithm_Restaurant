@@ -1,0 +1,23 @@
+import sys
+T = int(sys.stdin.readline())   #테스트케이스의 개수
+result = [] #각 테스트 케이스별 숫자를 저장하기 위한 리스트
+
+for _ in range(T):  #각 테스트케이스 진입 ->시간 복잡도에 영향 줄 요소는 아님
+    N = int(sys.stdin.readline())
+    data = []
+    count = 1 #선발가능한 사람 숫자, 기준 1에서 1등인 사람은 무조건 되니까
+
+    for _ in range(N):
+        data.append(list(map(int, sys.stdin.readline().split())))
+    #각 사람에 대한 데이터가 원소 두개짜리 리스트로 담겨있는 2차원 리스트 생성
+    data.sort() 
+
+    rank2 = data[0][1] #두 번째 사람의 기준2 순위
+    for i in range(1, N): #첫 사람은 굳이 안 해도 됨, i+1번째 사람의 가능여부를 결정하는 단계
+        if data[i][1] < rank2:
+            count += 1
+            rank2 = data[i][1]   
+    result.append(count)
+
+for i in range(len(result)):
+    print(result[i])
