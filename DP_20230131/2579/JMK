@@ -1,0 +1,18 @@
+import sys
+N = int(sys.stdin.readline())
+score = [int(sys.stdin.readline()) for _ in range(N)]
+
+if N == 1:
+    print(score[0])
+    exit()
+elif N==2:
+    print(score[0]+score[1])
+    exit()
+elif N==3:
+    print(max(score[0]+score[2], score[1]+score[2]))
+    exit()
+else:
+    dp = [score[0], score[0]+score[1], max(score[0]+score[2], score[1]+score[2])]
+    for i in range(3, N):
+        dp.append(max(dp[i-3]+score[i-1]+score[i], dp[i-2]+score[i]))
+    print(dp[-1])
