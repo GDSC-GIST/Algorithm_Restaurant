@@ -1,0 +1,23 @@
+import sys
+T = int(sys.stdin.readline())
+fb = [0, 1]
+
+for _ in range(T): #각 테스트케이스
+    N = int(sys.stdin.readline())
+    used_num = []   #각 케이스에서 사용된 피보나치 수들
+    
+    ##############
+    while fb[-1] < N: #한개는 더 초과한 상태
+        fb.append(fb[-1]+fb[-2])
+    ###############
+
+    temp_list = sorted(fb, reverse=True)
+    while N>0:
+        for j in range(len(fb)):        #N-~ 보다 작거나 같은 것중 최대인 수 찾기
+            if temp_list[j] <= N:
+                used_num.append(temp_list[j])
+                N -= temp_list[j]
+                break
+    
+    used_num.sort()
+    print(' '.join(map(str, used_num)))
