@@ -4,7 +4,7 @@ n = int(sys.stdin.readline())
 sequence = list(map(int, sys.stdin.readline().split()))
 
 dp = [0]*n
-dp[0], maxSum = sequence[0], sequence[0]
+dp[0] = sequence[0]
 
 for i in range(1,n):
     for j in range(i):
@@ -12,6 +12,5 @@ for i in range(1,n):
             dp[i] = max(dp[i], dp[j] + sequence[i])
         else:
             dp[i] = max(dp[i], sequence[i])
-        maxSum = max(maxSum, dp[i])
 
-print(maxSum)
+print(max(dp))
