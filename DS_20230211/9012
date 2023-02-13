@@ -1,5 +1,5 @@
+#이거보다 stack으로 구현하면 메모리 낭비 줄일 수 있음.
 import sys
-sys.stdin = open("/Users/munkijeong/Desktop/알고리즘 문제풀이/7회차; 자료구조 2-1/9012_2.txt", "r")
 N = int(input())
 
 for _ in range(N):  
