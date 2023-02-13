@@ -1,0 +1,14 @@
+import sys
+N = int(input())
+dic ={"STRAWBERRY" : 0, "BANANA": 0, "LIME": 0, "PLUM": 0 }
+for _ in range(N):
+    fruit, amount = sys.stdin.readline().split()
+    dic[fruit] += int(amount)
+
+if 5 in dic.values():   
+    print("YES")
+else:
+    print("NO")
+
+
+#알게된거: line11, line9
