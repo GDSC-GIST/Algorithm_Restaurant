@@ -1,0 +1,23 @@
+import sys
+
+N, M = map(int, sys.stdin.readline().split())
+set1 = set()
+count = 0;
+for _ in range(N):
+    set1.add(input())
+print(set1)
+
+list1 = []
+for _ in range(M):
+    name = sys.stdin.readline().rstrip()
+    if name in set1:
+        count += 1
+        list1.append(name)
+
+list1.sort()
+print(count)
+for nm in list1:
+    print(nm)
+
+##알게된것: line8을 rstrip 없이 하면, 개행문자가 같이 입력받아짐
+#이 경우 sys대신 input()하면 굳이 rstrip필요X
