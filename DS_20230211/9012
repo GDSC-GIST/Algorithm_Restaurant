@@ -1,0 +1,45 @@
+import sys
+sys.stdin = open("/Users/munkijeong/Desktop/알고리즘 문제풀이/7회차; 자료구조 2-1/9012_2.txt", "r")
+N = int(input())
+
+for _ in range(N):  
+    str = sys.stdin.readline().rstrip()
+    list1= list(str)
+   
+   # print(list1)
+
+    L_num = 0
+    R_num = 0
+
+    if list1[0] == ")": 
+        print("NO")
+        continue
+        
+
+    else:
+        i = 0
+        while True:
+            if list1[i] == "(":
+                L_num += 1
+            elif list1[i] == ")":
+                R_num += 1
+            
+            if L_num == R_num and i != len(list1)-1:
+                L_num = 0
+                R_num = 0
+                if list1[i+1] == ")":           ##처음에 이거 빠뜨려서 틀림
+                    print("NO")
+                    break
+
+
+            if i == len(list1)-1:
+                if L_num == R_num:
+                    print("YES")
+                    break
+                else:
+                    print("NO")
+                    break
+            
+            i += 1
+
+        
